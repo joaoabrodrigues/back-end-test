@@ -41,7 +41,7 @@ public class CategoryService {
 						  .sorted(Comparator.comparing(Category::getName, (c1, c2) -> {
 							  return Integer.compare(StringUtils.countOccurrencesOf(c2.toUpperCase(), letter.toUpperCase()),
 									  StringUtils.countOccurrencesOf(c1.toUpperCase(), letter.toUpperCase()));
-						  })).collect(Collectors.toList()).get(0);
+						  })).collect(Collectors.toList()).stream().findFirst().get();
 	}
 	
 	public void deleteCategory(Long id) {
