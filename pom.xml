@@ -14,6 +14,9 @@
 	</parent>
 
 	<properties>
+		<app.encoding>UTF-8</app.encoding>
+		<project.build.sourceEncoding>${app.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${app.encoding}</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
 
@@ -50,6 +53,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                	<executable>true</executable>
+                	<jvmArguments>-Dfile.encoding=${app.encoding}</jvmArguments>
+            	</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19</version>
+				<configuration>
+					<argLine>-Dfile.encoding=${app.encoding}</argLine>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

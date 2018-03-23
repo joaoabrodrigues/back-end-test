@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import br.com.bb.model.dto.CategoryDTO;
-
 @Entity
 @Table
 public class Category implements Serializable {
@@ -28,11 +26,6 @@ public class Category implements Serializable {
 	@NotBlank
 	private String name;
 	
-	public Category() {}
-	
-	public Category(CategoryDTO category) {
-		this.name = category.getName();
-	}
 	public Long getId() {
 		return id;
 	}
